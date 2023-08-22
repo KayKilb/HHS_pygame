@@ -1,14 +1,19 @@
+
 import pygame
 
 # Initialize Pygame
 pygame.init()
 
-# Create a window with a specific size (you can change the size as needed)
-window_size = (300, 300)
+# Create a window with a specific size (twice as big)
+window_size = (600, 600)
 window = pygame.display.set_mode(window_size)
 
 # Load the background image
 background_image = pygame.image.load("background.png")
+
+# Calculate the position to center the background image
+image_x = (window_size[0] - background_image.get_width()) // 2
+image_y = (window_size[1] - background_image.get_height()) // 2
 
 # Event loop to keep the window open
 running = True
@@ -17,8 +22,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # Draw the background image
-    window.blit(background_image, (0, 0))
+    # Draw the background image at the calculated position
+    window.blit(background_image, (image_x, image_y))
 
     # Update the display
     pygame.display.flip()

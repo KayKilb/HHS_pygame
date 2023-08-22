@@ -82,7 +82,7 @@ while True:
     pygame.display.flip()
     clock.tick(60)
 
-            exit()
+        exit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
             row, col = x // CELL_SIZE, y // CELL_SIZE

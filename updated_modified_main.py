@@ -37,18 +37,20 @@ x_image = pygame.image.load(x_image_path)
 x_image = pygame.transform.scale(x_image, (CELL_SIZE, CELL_SIZE))
 
 # Draw board function
+
 def draw_board():
+    border_size = 10  # 2x bigger border
     for row in range(1, 3):
-        pygame.draw.line(screen, LINE_COLOR, (0, CELL_SIZE * row), (SCREEN_WIDTH, CELL_SIZE * row), 5)
-        pygame.draw.line(screen, LINE_COLOR, (CELL_SIZE * row, 0), (CELL_SIZE * row, SCREEN_HEIGHT), 5)
+        pygame.draw.line(screen, LINE_COLOR, (0, CELL_SIZE * row), (SCREEN_WIDTH, CELL_SIZE * row), border_size)
+        pygame.draw.line(screen, LINE_COLOR, (CELL_SIZE * row, 0), (CELL_SIZE * row, SCREEN_HEIGHT), border_size)
 
     # Draw board content
     for row in range(3):
         for col in range(3):
             if board[row][col] == 'O':
                 screen.blit(o_image, (col * CELL_SIZE, row * CELL_SIZE))
-
-# Game loop
+            elif board[row][col] == 'X':
+                screen.blit(x_image, (col * CELL_SIZE, row * CELL_SIZE))
 while True:
     # Event handling
     for event in pygame.event.get():

@@ -9,7 +9,7 @@ window_size = (600, 600)
 window = pygame.display.set_mode(window_size)
 
 # Load the background image
-background_image = pygame.image.load("background.png")
+background_image = cd pygame.image.load("background.png")
 
 # Calculate the position to center the background image
 image_x = (window_size[0] - background_image.get_width()) // 2

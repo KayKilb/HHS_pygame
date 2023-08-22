@@ -62,8 +62,8 @@ def get_winner():
             return board[0][col]
 
     # Check diagonals
-    if (board[0][0] == board[1][1] == board[2][2] != "") or (board[0][2] == board[1][1] == board[2][0] != ""):
-        return board[1][1]
+    if board[0][0] == board[1][1] == board[2][2] != "" or board[0][2] == board[1][1] == board[2][0] != "":
+        return board[0][0]
 
     # Check for draw (if the board is full)
     if all(board[row][col] != "" for row in range(3) for col in range(3)):
@@ -73,11 +73,10 @@ def get_winner():
 
 # Event loop to keep the window open
 running = True
-turn = "X"  # Start with player "X"
 while running:
     winner = get_winner()
     if winner == "O":
-        winner = "Egg"  # Renamed O as "Egg"
+        winner = "Eggs"  # Renamed O as "Eggs"
     elif winner == "X":
         winner = "Bacon"  # Renamed X as "Bacon"
 
@@ -98,6 +97,8 @@ while running:
     draw_grid()
     draw_pieces()
 
+    # Display the winner or draw if the game is over
+    
     # Display the winner or draw if the game is over
     if winner:
         font = pygame.font.Font(None, 150)  # Larger and bolder font size

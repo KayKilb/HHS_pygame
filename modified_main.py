@@ -24,11 +24,11 @@ player_turn = 'X'
 board = [['' for x in range(3)] for y in range(3)]
 
 # Load and scale background image
-background_image = pygame.image.load(background.png')
+background_image = pygame.image.load('C:/Users/bigro/OneDrive/Documents/tests/HHS_pygame/background.png')
 background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Load and scale circle play piece image (O)
-o_image = pygame.image.load('/mnt/data/o_image.png')
+o_image = pygame.image.load('C:/Users/bigro/OneDrive/Documents/tests/HHS_pygame/o_image.png')
 o_image = pygame.transform.scale(o_image, (CELL_SIZE, CELL_SIZE))
 
 # Draw board function

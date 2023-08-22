@@ -38,6 +38,20 @@ x_image = pygame.transform.scale(x_image, (CELL_SIZE, CELL_SIZE))
 
 # Draw board function
 
+
+def check_winner(board):
+    # Check rows, columns, and diagonals
+    for row in range(3):
+        if board[row][0] == board[row][1] == board[row][2] != '':
+            return board[row][0]
+    for col in range(3):
+        if board[0][col] == board[1][col] == board[2][col] != '':
+            return board[0][col]
+    if board[0][0] == board[1][1] == board[2][2] != '':
+        return board[0][0]
+    if board[0][2] == board[1][1] == board[2][0] != '':
+        return board[0][2]
+    return None
 def draw_board():
     border_size = 10  # 2x bigger border
     for row in range(1, 3):
@@ -52,15 +66,13 @@ def draw_board():
             elif board[row][col] == 'X':
                 screen.blit(x_image, (col * CELL_SIZE, row * CELL_SIZE))
 
-winner = None
 
-font = pygame.font.Font(None, 36)  # Font for displaying the winner's text
+winner = None
 
 while True:
     # Event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
             exit()
         elif event.type == pygame.MOUSEBUTTONDOWN and winner is None:
             x, y = pygame.mouse.get_pos()
@@ -68,7 +80,7 @@ while True:
             if board[row][col] == '':
                 board[row][col] = 'O' if player_turn == 'O' else 'X'
                 player_turn = 'O' if player_turn == 'X' else 'X'
-                winner = check_winner()
+                winner = check_winner(board)
 
     # Draw everything
     screen.blit(background_image, (0, 0))
@@ -78,20 +90,11 @@ while True:
     if winner:
         winner_text = font.render(f"{winner} WINS!!!", True, (255, 0, 0))
         screen.blit(winner_text, (SCREEN_WIDTH // 2 - winner_text.get_width() // 2, SCREEN_HEIGHT // 2 - winner_text.get_height() // 2))
+        pygame.display.flip()
+        pygame.time.delay(2000)  # Delay to allow the message to be seen
+        exit()
 
     pygame.display.flip()
     clock.tick(60)
 
-            exit()
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            x, y = pygame.mouse.get_pos()
-            row, col = x // CELL_SIZE, y // CELL_SIZE
-            if board[col][row] == '':
-                board[col][row] = 'O' if player_turn == 'O' else 'X'
-                player_turn = 'O' if player_turn == 'X' else 'X'
-
-    # Draw everything
-    screen.blit(background_image, (0, 0))
-    draw_board()
-    pygame.display.flip()
     clock.tick(60)

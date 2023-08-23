@@ -1,0 +1,22 @@
+# Virtual Environment
+myenv/
+
+# VS Code Settings
+.vscode/
+
+# PyInstaller Build Directories
+__pycache__/
+build/
+builds/
+dist/
+
+# Test Files
+test_main.py
+
+# Log Files
+*.log
+
+# Other Ignored Files
+*.swp
+*.bak
+*.tmp

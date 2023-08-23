@@ -80,7 +80,7 @@ turn = "X"  # Start with player "X"
 while running:
     winner = get_winner()
     if winner == "O":
-        winner = "Eggs"  # Renamed O as "Eggs"
+        winner = "Egg"  # Renamed O as "Eggs"
     elif winner == "X":
         winner = "Bacon"  # Renamed X as "Bacon"
 

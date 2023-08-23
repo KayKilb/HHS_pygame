@@ -20,3 +20,4 @@ test_main.py
 *.swp
 *.bak
 *.tmp
+*.spec

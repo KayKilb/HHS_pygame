@@ -42,5 +42,4 @@ Sunrise Showdown is developed using Pygame, a set of Python modules designed for
 ## Credits
 
 - **Development**: Kaylene Kilbourne and Rob Hollis
-- **Special Thanks**: OpenAI for assistance with development.
 

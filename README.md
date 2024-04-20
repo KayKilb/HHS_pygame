@@ -1,5 +1,8 @@
 # Sunrise Showdown 🌅🥓🍳
 
+![Toxic Flora](/img/README-Image.jpg)
+![Sunrise Showdown](background.png)
+
 Sunrise Showdown is a modern take on the classic Tic-Tac-Toe game, with engaging visuals and exciting features. Players battle it out as "Bacon" and "Eggs" in a fun breakfast-themed showdown. The game includes a unique "Undo" powerup and customizable visuals.
 
 ## Table of Contents
